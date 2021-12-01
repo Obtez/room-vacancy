@@ -28,7 +28,8 @@
   border: none;
   height: 14px;
   width: calc(13.1% + 21.5px);
-  margin-top: -1px;
+  position: absolute;
+  right: 0;
   margin-left: auto;
   background-color: $accent;
   clip-path: polygon(0% 0%, 100% 0%, 0% 100%);

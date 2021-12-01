@@ -9,6 +9,7 @@ const HeaderLarge = () => {
           <img src="./assets/door-logo.svg" alt="door logo" />
         </div>
       </div>
+      <div className={styles.polygon}></div>
       <p className={styles.banner}>room scheduling for businesses</p>
     </header>
   )
