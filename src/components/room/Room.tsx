@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import { IRoom } from "../../types/roomTypes"
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from 'react-icons/ai'
 import {GoTriangleRight, GoTriangleDown} from 'react-icons/go'
@@ -8,17 +9,41 @@ interface IProps {
 }
 
 const Room = ({ room }: IProps) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   if (!room) {
     return null
   }
 
+  const toggleOpen = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <li className={styles.room}>
-      <GoTriangleRight className={ styles.toggleIcon }/>
+      {
+        isOpen ? <GoTriangleDown className={ styles.toggleIcon } onClick={toggleOpen} /> : <GoTriangleRight className={ styles.toggleIcon } onClick={toggleOpen} />
+      }
+      
       <div className={styles.roomData}>
-        <p>Room - {room.name}</p>
-        <AiOutlineCheckCircle className={styles.success} />
+        <div className={styles.roomDataHeading}>
+          <p>Room - {room.name}</p>
+          <AiOutlineCheckCircle className={styles.success} />
+        </div>
+
+        {
+          isOpen && (
+          <div className={styles.roomDataBody}>
+            <p><span>Busy: </span>"MISSING VARIABLE"</p>
+            <p><span>Floor: </span>{ room.floor }</p>
+            <p><span>Capacity: </span>{ room.capacity }</p>
+            <p><span>Infrastructure: </span>{room.infrastructure}</p>
+              
+            <button type="button">Book Room</button>
+            <button type="button">Timetable</button>
+          </div>
+          )
+        }
       </div>
     </li>
   )

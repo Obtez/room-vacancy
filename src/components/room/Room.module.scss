@@ -8,6 +8,8 @@
   gap: .313rem;
 
   .toggleIcon {
+    margin-top: .5rem;
+    align-self: flex-start;
     background-color: transparent;
     border: none;
     color: $pale-primary-text;
@@ -18,14 +20,26 @@
     flex-basis: 100%;
     font-size: 1rem;
     font-weight: 300;
-    padding: .25rem .5rem;
     margin-bottom: .313rem;
     background-color: $bg-mid;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+    &Heading {
+      padding: .25rem .5rem;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &Body {
+      padding: .25rem .5rem .75rem .5rem;
+      background-color: $bg-light;
+      
+      span {
+        font-weight: 500;
+        color: $bg-light-pale;
+      }
+    }
 
     .success {
       display: inline-block;
