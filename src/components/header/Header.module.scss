@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+
+.header {
+  padding: .75rem 6.25%;
+  font-size: 1.5rem;
+  color: $light;
+  background-color: $accent;
+
+  div {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-right: 7.65625%;
+    border-bottom: 1px solid $light;
+
+    img {
+      margin-left: auto;
+      margin-bottom: -.26rem;
+    }
+  }
+}
+
+.polygon {
+  border: none;
+  height: 14px;
+  width: calc(13.1% + 21.5px);
+  margin-top: -1px;
+  margin-left: auto;
+  background-color: $accent;
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+  border-bottom-left-radius: 3px;
+}
