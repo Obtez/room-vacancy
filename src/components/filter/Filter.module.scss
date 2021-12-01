@@ -1,9 +1,10 @@
 @import "../../styles/variables";
 
 .filter {
-  font-size: 1rem;
-  padding: .688rem 1.25rem;
+  padding: .688rem 6.25vw;
   background-color: $bg-light;
+  font-size: 1rem;
+  font-weight: 300;
 
   display: flex;
   align-items: center;

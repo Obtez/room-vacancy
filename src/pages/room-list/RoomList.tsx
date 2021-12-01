@@ -17,7 +17,7 @@ const RoomList = () => {
 
   return (
     <div>
-      <Header text={"find vacant room"} />
+      <Header />
       <Filter />
       {
         buildingList.map(building => {

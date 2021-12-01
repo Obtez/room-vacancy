@@ -1,15 +1,11 @@
 import styles from "./Header.module.scss"
 
-interface IProps {
-  text: string
-}
-
-const Header = ({text}: IProps) => {
+const Header = () => {
   return (
     <>
     <header className={styles.header}>
       <div>
-        <p>{text || "No header text provided"}</p>
+        <p>find <span>vacant</span> room</p>
         <img src="./assets/door-logo.svg" alt="door logo" width="21.5px" height="32.5px" />
       </div>
       </header>

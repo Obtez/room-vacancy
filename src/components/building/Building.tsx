@@ -1,5 +1,6 @@
 import { IBuilding } from "../../types/roomTypes"
 import Room from "../room/Room"
+import styles from "./Building.module.scss"
 
 interface IProps {
   rooms: IBuilding | undefined,
@@ -8,11 +9,11 @@ interface IProps {
 
 const Building = ({ rooms }: IProps) => {
   if (!rooms) {
-    return <div>Loading...</div>
+    return <p>Loading...</p>
   }
 
   return (
-    <div>
+    <div className={styles.building}>
       <h2>{rooms.building}</h2>
       <ul>
         {
