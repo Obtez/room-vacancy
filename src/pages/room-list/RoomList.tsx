@@ -4,8 +4,6 @@ import { matchRoomsToBuildings, getBuildingsFromRooms } from "./roomListHelper";
 import {rooms} from "../../mocks/roomsMock";
 import { IBuilding } from "../../types/roomTypes";
 import Building from "../../components/building/Building";
-import Filter from "../../components/filter/Filter";
-import MobileMenu from "../../components/mobile-menu/MobileMenu";
 
 const RoomList = () => {
   const [roomsByBuilding, setRoomsByBuilding] = useState<IBuilding[]>([]);
@@ -18,7 +16,7 @@ const RoomList = () => {
 
   return (
     <div>
-      <Header bannerType="filter" />
+      <Header bannerType="filter" page="room-list" />
       {
         buildingList.map(building => {
           const rooms = roomsByBuilding.find(b => b.building === building);

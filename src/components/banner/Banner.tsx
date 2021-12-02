@@ -1,4 +1,5 @@
 import Filter from "../filter/Filter";
+import styles from "./Banner.module.scss";
 
 interface IProps {
   type: string;
@@ -7,9 +8,9 @@ interface IProps {
 
 const Banner = ({ type, text }: IProps) => {
   if (type === "text" && text) {
-    return <p>{ text }</p>
+    return <p className={styles.banner}>{ text }</p>
   } else if (type === "back") {
-    return <p>{"<- back"}</p>
+    return <p className={styles.banner}>{"<- back"}</p>
   } else if (type === "filter") {
     return <Filter />
   }

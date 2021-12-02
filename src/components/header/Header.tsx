@@ -3,21 +3,38 @@ import MobileMenu from "../mobile-menu/MobileMenu"
 import styles from "./Header.module.scss"
 
 interface IProps {
-  bannerType: string
+  bannerType: string,
+  page: string
 }
 
-const Header = ({bannerType}: IProps) => {
+const Header = ({ bannerType, page }: IProps) => {
+  const getHeaderText = () => {
+    switch (page) {
+      case "room-list":
+        return <p>find <span>vacant</span> room</p>
+      
+      case "menu":
+        return <p>menu</p>
+      
+      case "scheduled":
+        return <p>your schedule</p>
+      
+      default:
+        return null
+    }
+  }
+
   return (
     <>
     <header className={styles.header}>
       <div>
-        <p>find <span>vacant</span> room</p>
+        {getHeaderText()}
         <img src="./assets/door-logo.svg" alt="door logo" width="21.5px" height="32.5px" />
       </div>
       </header>
       <div className={styles.polygon}></div>
       <Banner type={bannerType} />
-      <MobileMenu />
+      <MobileMenu  />
     </>
   )
 }
