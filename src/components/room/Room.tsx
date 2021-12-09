@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { IRoom } from "../../types/roomTypes"
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from 'react-icons/ai'
+import {BsCalendarWeek} from 'react-icons/bs'
 import {GoTriangleRight, GoTriangleDown} from 'react-icons/go'
 import styles from "./Room.module.scss"
 
@@ -28,7 +29,7 @@ const Room = ({ room }: IProps) => {
       <div className={styles.roomData}>
         <div className={styles.roomDataHeading}>
           <p>Room - {room.name}</p>
-          <AiOutlineCheckCircle className={styles.success} />
+          <AiOutlineCheckCircle className={styles.tick} />
         </div>
 
         {
@@ -39,8 +40,8 @@ const Room = ({ room }: IProps) => {
             <p><span>Capacity: </span>{ room.capacity }</p>
             <p><span>Infrastructure: </span>{room.infrastructure}</p>
               
-            <button type="button">Book Room</button>
-            <button type="button">Timetable</button>
+            <button type="button" className={styles.bookingBtn}>Book Room</button>
+            <button type="button" className={styles.timetableBtn}><BsCalendarWeek /> Timetable</button>
           </div>
           )
         }

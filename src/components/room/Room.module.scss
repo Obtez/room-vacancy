@@ -39,13 +39,43 @@
         font-weight: 500;
         color: $bg-light-pale;
       }
+
+      .bookingBtn {
+        margin-top: .75rem;
+        margin-right: 1.063rem;
+        padding: .375rem 1.25rem;
+        background-color: $accent;
+        border: none;
+        border-radius: 5px;
+        color: $light;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      .timetableBtn {
+        padding-bottom: .2rem;
+        border: none;
+        border-bottom: 1px solid $light;
+        background-color: transparent;
+        color: $light;
+        font-size: 1rem;
+        
+      }
     }
 
-    .success {
+    .tick,
+    .cross {
       display: inline-block;
       width: 21px;
       height: 21px;
-      color: $success;
+    }
+
+    .tick {
+      color: $light;
+    }
+
+    .cross {
+      color: gray;
     }
   }
 }

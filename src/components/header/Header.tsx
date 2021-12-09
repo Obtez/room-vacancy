@@ -19,6 +19,18 @@ const Header = ({ bannerType, page }: IProps) => {
       case "scheduled":
         return <p>your schedule</p>
       
+      case "admin":
+        return <p>admin panel</p>
+      
+      case "new-room":
+        return <p>new room</p>
+
+      case "edit-room":
+        return <p>edit room</p>
+      
+      case "edit-users":
+        return <p>edit users</p>
+        
       default:
         return null
     }
