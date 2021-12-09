@@ -1,7 +1,9 @@
-import {useState} from 'react';
+import {useState, ChangeEvent, FormEvent} from 'react';
 import Header from "../../../components/header/Header"
 import ToggleItem from "../../../components/toggle-item/ToggleItem"
 import {IRoom} from "../../../types/roomTypes"
+import { addRoom } from '../../../features/rooms/roomSlice';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
 import styles from "./NewRoom.module.scss"
 
 const emptyRoom: IRoom = {
@@ -16,10 +18,18 @@ const emptyRoom: IRoom = {
 
 const NewRoom = () => {
   const [roomData, setRoomData] = useState<IRoom>(emptyRoom)
+  const rooms = useAppSelector(state => state.rooms.rooms)
+  const dispatch = useAppDispatch()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target
     setRoomData({...roomData, [name]: value})
+  }
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log(rooms);
+    dispatch(addRoom(roomData))
   }
 
   return (
@@ -29,7 +39,7 @@ const NewRoom = () => {
       </div>
       <div className={styles.content}>
         <h2>Create a new room</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <ToggleItem label="Room Number" name="roomNr">
             <input type="text" name="roomNr" id="roomNr" onChange={handleChange} />
           </ToggleItem>
@@ -57,6 +67,8 @@ const NewRoom = () => {
           <ToggleItem label="Infrastructure" name="infrastructure">
             <input type="text" name="infrastructure" id="infrastructure" onChange={handleChange} />
           </ToggleItem>
+
+          <button type="submit">Create</button>
         </form>
 
         <button type="button">Next</button>
